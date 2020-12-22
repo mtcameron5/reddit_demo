@@ -1,0 +1,44 @@
+<%= csrf_meta_tags %>
+
+<html>
+  <body>
+
+    <h2><%= current_reddit.title %></h2>
+
+    <% reddit_posts.each do |reddit_post| %>
+
+      <h2>
+        <%= link_to reddit_post.title, 
+        "/reddit/#{current_reddit.title}/#{reddit_post.title}/#{reddit_post.author}", 
+        class: 'reddit_post_link' %> <small>By: <%= reddit_post.author %></small>
+      </h2>
+
+      <%= render partial: "shared/delete_reddit_post", locals: { reddit_post: reddit_post } %>
+      <hr />
+
+    <% end %>
+
+    <% new_reddit_post.errors.each do |error, attribute| %>
+      <p div class="post_error">
+        <%= error.capitalize %>: <%= attribute %>
+      </p>
+    <% end %>
+
+    <% if @user_logged_in %>
+      <form method="post" action="/create_reddit_post/<%= current_reddit.title %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label>Post Title</label>
+        <input name="reddit_post_title" type="text" value="<%= new_reddit_post.title %>"/>
+        <br /> <br />
+
+        <label>Content</label>
+        <textarea name="content"><%= new_reddit_post.content %></textarea>
+        <br /> <br />
+
+        <input type="submit" value="Create Reddit Post" class="create_reddit_post_button" />
+
+      </form>
+    <% end %>
+
+  </body>
+</html>

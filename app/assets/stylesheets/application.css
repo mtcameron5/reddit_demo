@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+ :root {
+   --green_one: #12E772;
+   --green_two: #35B535;
+   --green_three: #006B3C;
+   --green_four: #00563F;
+   --green_five: #013220;
+
+   --new_green_one: #E8F9DF;
+   --new_green_two: #476F4D;
+   --new_green_three: #68B071;
+
+   --color_scheme_one_color_one: #FFEEE4;
+   --color_scheme_one_color_two: #F17F42;
+   --color_scheme_one_color_three: #CE6D39;
+   --color_scheme_one_color_four: #000000;
+   
+ }
+
+.home_page_link {
+  float: right;
+}
+
+.reddit_link {
+  float: left;
+  padding-right: 30px;
+  color: var(--color_scheme_one_color_one);
+}
+
+.logged_in_links {
+  float: right;
+  
+}
+.not_logged_in_links {
+  float: right;
+}
+
+.login_link {
+  color: var(--color_scheme_one_color_one);
+  padding-left: 30px;
+}
+
+.create_account_link {
+  color: var(--color_scheme_one_color_one);
+}
+
+.logout_link {
+  color: var(--color_scheme_one_color_one);
+  float: right;
+  padding-left: 30px;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profile_link {
+  color: var(--color_scheme_one_color_one);
+}
+
+a, a:link, a:visited, a:focus, a:hover, a:active {
+  text-decoration: none;
+}
+
+.reddit_post_link {
+  color: var(--color_scheme_one_color_two);
+}
+
+
+
+
+.create_reddit_post_button {
+  background-color: #CE6D39; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.delete_reddit_post_buttton {
+  background-color: #CE6D39; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Crimson Text', serif; */
+  /* background-color: var(--color_scheme_one_color_one); */
+
+}
+
+header {
+  overflow: hidden;
+  padding: 12px;
+  text-align: center;
+  background: var(--color_scheme_one_color_four);
+  color: white;
+  font-size: 25px;
+}

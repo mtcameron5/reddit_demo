@@ -1,0 +1,15 @@
+<html>
+  <body>
+
+    <div class="reddits"
+      <% reddits.each do |reddit| %>
+
+        <p><a href="/reddit/<%= reddit.title %>?id=<%=reddit.id%>"><%= reddit.id %> <%= reddit.title %></a></p>
+        <hr />
+        
+      <% end %>
+    </div>
+
+  </body>
+</html>
+

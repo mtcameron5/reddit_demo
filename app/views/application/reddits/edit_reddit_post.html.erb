@@ -1,0 +1,19 @@
+<html>
+  <body>
+    
+    <form method="post" action="/reddit/update_post/<%= reddit_post.id %>">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <label>Reddit Post Title</label>
+      <input name="reddit_post_title" type="text" value="<%= reddit_post.title %>"/>
+      <br /> <br />
+
+      <label>Content</label>
+      <textarea name="content"><%= reddit_post.content %></textarea>
+      <br /> <br />
+
+      <input type="submit" value="Update" />
+    </form>
+
+  </body>
+</html>

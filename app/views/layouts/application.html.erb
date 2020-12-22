@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reddit</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"> 
+    
+  </head>
+
+  <body>
+    <header>
+
+      <% @reddits.each do |reddit| %>
+        <a class="reddit_link" href="/reddit/<%= reddit.title %>"><%= reddit.title %></a>
+      <% end %>
+
+      <% if @user_logged_in %>
+        <div class="logged_in_links">
+          <a class="profile_link" href="/user/<%= @user_logged_in %>">Profile</a>
+          <form action="/logout" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <button class="logout_link" name="logout" value="upvote">Logout</button>
+          </form>
+        </div>
+      <% else %>
+        <div class="not_logged_in_links">
+          <a class="create_account_link" href="/create_user/">Create Account</a>
+          <a class="login_link" href="/login">Login</a>
+        </div>
+      <% end %>
+
+    </header>
+
+    <%= yield %>
+  </body>
+</html>

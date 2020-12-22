@@ -1,0 +1,20 @@
+
+<p><%= user.user_name %></p>
+<p>Email Address: <%= user.email_address %></p>
+
+<h3>Posts</h3>
+
+<% reddit_posts.each do |reddit_post| %>
+  <p>Title: <%= link_to reddit_post.title, "/reddit/#{reddit_post.reddit_title}/#{reddit_post.title}/"%></p>
+<% end %>
+
+<h5>Comments</h5>
+
+<% reddit_post_comments.each do |comment| %>
+  <p>Reddit: <%= comment.get_reddit_name %></p>
+  <p>From Post: 
+    <%= link_to comment.get_reddit_post_title, 
+    "/reddit/#{comment.get_reddit_name}/#{comment.get_reddit_post_title}/#{comment.get_reddit_post_author}/" %>
+  </p>
+  <p>Your Comment: <%= comment.content %></p>
+<% end %>

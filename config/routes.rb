@@ -1,0 +1,17 @@
+Rails.application.routes.draw do
+  get '/'                                                           => 'application#list_reddits'
+  get '/reddit/:title'                                              => 'application#show_reddit'
+  get '/reddit/:title/:reddit_post_title/:author'                   => 'application#show_reddit_post'
+  post '/create_reddit_post/:title/'                                => 'application#create_reddit_post' 
+  post '/reddit/delete_post/:reddit_post_id'                        => 'application#delete_reddit_post'
+  get '/reddit/:title/edit/:reddit_post_title/:author'              => 'application#edit_reddit_post'
+  post 'reddit/update_post/:reddit_post_id'                         => 'application#update_reddit_post'
+  get '/list_users'                                                 => 'application#list_users'
+  get '/create_user'                                                => 'application#new_user'
+  post '/create_user'                                               => 'application#create_user'
+  get 'user/:user_name'                                             => 'application#get_user'
+  post '/login/'                                                    => 'application#login'
+  get '/login'                                                      => 'application#login_page'
+  post '/logout'                                                    => 'application#logout'
+  post '/reddit/create_comment/'                                    => 'application#create_reddit_post_comment'
+end

@@ -1,0 +1,41 @@
+<html>
+  <body>
+
+    <a class="reddit_link" href="/reddit/<%= reddit.title %>">Back to <%= reddit.title %></a>
+    <h2><%= reddit_post.title %></h2>
+
+    <p>
+      <%= reddit_post.content %>
+    </p>
+    <h2><%= link_to "Edit Post", 
+    "/reddit/#{reddit.title}/edit/#{reddit_post.title}/#{reddit_post.author}" %></h2>
+
+    <br />
+    <hr />
+
+    <% comments.each do |comment| %>
+      <p><em><%= comment.title %></em><small>by <%= comment.author %></small></p>
+      <p><%= comment.content %></p>
+    <% end %>
+
+    <% if @user_logged_in %>
+      <form method="post" action="/reddit/create_comment/">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label>Comment Title</label>
+        <input name="comment_title" type="text"/>
+        <br /> <br />
+
+        <label>Content</label>
+        <textarea name="content"></textarea>
+        <br /> <br />
+        <input type="hidden" name="comment_author" value="<%= @user_logged_in %>"/>
+        <input type="hidden" name="reddit_post_id" value="<%= reddit_post.id %>"/>
+        <input type="hidden" name="reddit_title" value="<%= reddit_post.reddit_title %>"/>
+        <input type="hidden" name="reddit_id" value="<%= reddit_post.reddit_id %>"/>
+        <input type="submit" value="Create Comment" class="create_reddit_post_button" />
+
+      </form>      
+    <% end %>
+
+  </body>
+</html>

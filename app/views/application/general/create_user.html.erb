@@ -1,0 +1,31 @@
+
+<div class="create_user_form_errors">
+
+  <% new_user.errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+
+</div>
+
+<form method="post" action="/create_user">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <label>Username</label>
+  <input name="user_name" type="text" value="<%= new_user.user_name %>"/>
+  <br /> <br />
+
+  <label>Email Address</label>
+  <input name="email_address" type="text" value="<%= new_user.email_address %>"/>
+  <br /> <br />
+
+  <label>Password</label>
+  <input name="password" type="password" value="<%= new_user.password %>"/>
+  <br /> <br />
+
+  <label>Password Confirmation</label>
+  <input name="password_confirmation" type="password" value="<%= new_user.password_confirmation %>"/>
+  <br /> <br />
+
+  <input type="submit" value="Create New User" class="create_new_user_button" />
+
+</form>
